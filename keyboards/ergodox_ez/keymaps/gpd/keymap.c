@@ -16,7 +16,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   ^    |   <  |   {  |   (  |   [  |   $  |   %  |           |   +  |   !  |   ]  |   )  |   }  |   >  |       |
+ * |   ^    |   <  |   {  |   (  |   [  |   $  |   %  |           |   +  |   !  |   ]  |   )  |   }  |   >  |   *    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Tab    |  '"  |   ,  |   .  |   P  |   Y  |  |   |           |   -  |   F  |   G  |   C  |   T  |   Z  |   /    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -36,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [BASE] = LAYOUT_ergodox_pretty(
   // left hand                                                                              // right hand 
-  KC_CIRC,         KC_LT,       KC_LCBR,       KC_LPRN, KC_LBRC, KC_DLR,  KC_PERC,          KC_PLUS,      KC_EXLM, KC_RBRC, KC_RPRN, KC_RCBR,  KC_GT,    KC_MINS,
+  KC_CIRC,         KC_LT,       KC_LCBR,       KC_LPRN, KC_LBRC, KC_DLR,  KC_PERC,          KC_PLUS,      KC_EXLM, KC_RBRC, KC_RPRN, KC_RCBR,  KC_GT,    KC_ASTR,
   KC_TAB,          KC_DQT,      KC_COMM,       KC_DOT,  KC_P,    KC_Y,    KC_PIPE,          KC_MINS,      KC_F,    KC_G,    KC_C,    KC_T,     KC_Z,     KC_SLSH,
   CTL_T(KC_ESC),   KC_A,        KC_O,          KC_E,    KC_I,    KC_U,                                    KC_H,    KC_D,    KC_R,    KC_N,     KC_S,     KC_L,
   KC_LSFT,         KC_AT,       KC_Q,          KC_J,    KC_K,    KC_X,    KC_EQL,           KC_HASH,      KC_B,    KC_M,    KC_W,    KC_V,     KC_BSLS,  KC_RSFT,
@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
                                                                   KC_LALT, KC_LGUI,         KC_DEL,  KC_RALT,
                                                                            KC_HOME,         KC_PGUP,
-                                                   LSFT_T(KC_SPC), KC_ENT, KC_END,          KC_PGDN, KC_BSPC, RSFT_T(KC_SPC)
+                                                   LSFT_T(KC_SPC), KC_ENT, KC_END,          KC_PGDN, KC_BSPC, LSFT_T(KC_SPC)
 ),
 /* Keymap 1: Symbol Layer
  *
@@ -115,10 +115,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 const key_override_t quot_key_override  = ko_make_basic(MOD_MASK_SHIFT, KC_DQT, KC_QUOT);
 const key_override_t dot_key_override   = ko_make_basic(MOD_MASK_SHIFT, KC_DOT, KC_COLN);
-const key_override_t comma_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COLN, KC_SCLN);
+const key_override_t comma_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMMA, KC_SCLN);
 const key_override_t slash_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_SLSH, KC_ASTR);
 const key_override_t pipe_key_override  = ko_make_basic(MOD_MASK_SHIFT, KC_PIPE, KC_AMPR);
-const key_override_t circ_key_override  = ko_make_basic(MOD_MASK_SHIFT, KC_CIRC, KC_TILDE);
+const key_override_t circ_key_override  = ko_make_basic(MOD_MASK_SHIFT, KC_CIRC, KC_TILD);
 
 // 1234 <-> <{([
 const key_override_t one_key_override   = ko_make_basic(MOD_MASK_SHIFT, KC_LT,   KC_1);
