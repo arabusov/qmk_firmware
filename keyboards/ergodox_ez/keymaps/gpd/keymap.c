@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
+#include "keymap_us_international.h"
 
 enum layers {
     BASE,  // default layer
@@ -40,9 +41,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,          KC_DQT,      KC_COMM,       KC_DOT,  KC_P,    KC_Y,    KC_PIPE,          KC_MINS,      KC_F,    KC_G,    KC_C,    KC_T,     KC_Z,     KC_SLSH,
   CTL_T(KC_ESC),   KC_A,        KC_O,          KC_E,    KC_I,    KC_U,                                    KC_H,    KC_D,    KC_R,    KC_N,     KC_S,     KC_L,
   KC_LSFT,         KC_AT,       KC_Q,          KC_J,    KC_K,    KC_X,    KC_EQL,           KC_HASH,      KC_B,    KC_M,    KC_W,    KC_V,     KC_BSLS,  KC_RSFT,
-  LT(SYMB,KC_GRV), KC_GRV,      TT(SYMB),      KC_DOWN, KC_UP,                                                     KC_LEFT, KC_RGHT, TG(SYMB), TG(MDIA), TT(SYMB),
+  LT(SYMB,KC_GRV), KC_GRV,      MO(SYMB),      KC_DOWN, KC_UP,                                                     KC_LEFT, KC_RGHT, TG(SYMB), TG(MDIA), MO(MDIA),
 
-                                                                  KC_LALT, KC_LGUI,         KC_DEL,  KC_RALT,
+                                                                  KC_LALT, KC_INS,          KC_DEL,  KC_RALT,
                                                                            KC_HOME,         KC_PGUP,
                                                    LSFT_T(KC_SPC), KC_ENT, KC_END,          KC_PGDN, KC_BSPC, LSFT_T(KC_SPC)
 ),
@@ -76,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                         KC_TRNS, KC_DOT,  KC_0,    KC_EQL,  KC_TRNS,
                                                UG_NEXT, KC_TRNS,     UG_TOGG, RGB_M_P,
                                                         KC_TRNS,     KC_TRNS,
-                                      UG_VALD, UG_VALU, KC_TRNS,     KC_TRNS, UG_HUED, UG_HUEU
+                                      KC_TRNS, UG_VALU, KC_TRNS,    KC_TRNS, UG_HUED, KC_TRNS
 ),
 /* Keymap 2: Media and mouse keys
  *
@@ -99,17 +100,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |      |      |       |      |      |      |
  *                                 `--------------------'       `--------------------'
  */
+// Keycodes for umlauts and eszett
+#define UML_AE US_ADIA
+#define UML_OE US_ODIA
+#define UML_UE US_UDIA
+#define GER_SZ US_SS
+#define EU_EUR US_EURO
+
 [MDIA] = LAYOUT_ergodox_pretty(
   // left hand
-  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+  KC_TRNS, US_LDAQ, US_LSQU, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, US_RSQU, US_RDAQ, KC_TRNS,
   KC_TRNS, KC_TRNS, KC_TRNS, MS_UP,   KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-  KC_TRNS, KC_TRNS, MS_LEFT, MS_DOWN, MS_RGHT, KC_TRNS,                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MPLY,
+  KC_TRNS, UML_AE,  UML_OE,  EU_EUR,  KC_TRNS, UML_UE,                        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, GER_SZ,  KC_MPLY,
   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_MPRV, KC_MNXT, KC_TRNS, KC_TRNS,
   KC_TRNS, KC_TRNS, KC_TRNS, MS_BTN1, MS_BTN2,                                         KC_VOLU, KC_VOLD, KC_MUTE, KC_TRNS, KC_TRNS,
 
                                                KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS,
                                                         KC_TRNS,     KC_TRNS,
-                                      KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_WBAK
+                                      KC_TRNS, KC_TRNS, KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS
 ),
 };
 
